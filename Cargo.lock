@@ -585,7 +585,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "ybc-navbar-example"
+name = "ybc_navbar_example"
 version = "0.1.0"
 dependencies = [
  "ybc",
