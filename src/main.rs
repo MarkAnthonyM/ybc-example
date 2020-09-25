@@ -1,6 +1,6 @@
 use yew::prelude::*;
 use ybc::Navbar;
-use ybc::NavbarItemTag::A;
+use ybc::NavbarItemTag::{ A, Div };
 
 enum Msg {
     AddOne,
@@ -89,7 +89,16 @@ impl Model {
     // Html type gets tossed into navend field of NavbarProps struct. Consult ybc Docs for more info.
     fn view_navend(&self) -> Html {
         html! {
-
+            <ybc::NavbarItem tag=Div>
+                <ybc::Buttons>
+                    <ybc::Button classes=Some("is-primary")>
+                        <strong>{ "Sign up" }</strong>
+                    </ybc::Button>
+                    <ybc::Button classes=Some("is-light")>
+                        { "Log in" }
+                    </ybc::Button>
+                </ybc::Buttons>
+            </ybc::NavbarItem>
         }
     }
 
