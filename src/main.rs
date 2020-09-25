@@ -90,7 +90,9 @@ impl Model {
     fn view_navend(&self) -> Html {
         html! {
             <ybc::NavbarItem tag=Div>
+                // Create div container for button groups
                 <ybc::Buttons>
+                    // Button classes property accepts Option<String> type. `is-primary` here provides color styling. 
                     <ybc::Button classes=Some("is-primary")>
                         <strong>{ "Sign up" }</strong>
                     </ybc::Button>
