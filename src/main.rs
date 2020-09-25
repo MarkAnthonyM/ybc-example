@@ -44,11 +44,18 @@ impl Component for Model {
 
     fn view(&self) -> Html {
         html! {
+            <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
+        }
+    }
+}
+
+impl Model {
+    fn view_navbrand(&self) -> Html {
+        html! {
             <>
-                // <ybc::NavbarItem tag=A>
-                //     <img src="https://bulma.io/images/bulma-logo.png" />
-                // </ybc::NavbarItem>
-                <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
+                <ybc::NavbarItem tag=A>
+                    <img src="https://bulma.io/images/bulma-logo.png" />
+                </ybc::NavbarItem>
             </>
         }
     }
