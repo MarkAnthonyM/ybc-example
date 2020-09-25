@@ -44,12 +44,16 @@ impl Component for Model {
 
     fn view(&self) -> Html {
         html! {
+            // ybc-element of type Navbar. navbrand, navstart, and navend properties are required and each expect an Html type. The yew html! macro returns this type.
+            // The `navbar-burger` section is automatically appended.
             <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
         }
     }
 }
 
 impl Model {
+    // Contruct the contents of the Navbar brand section and return Html type that navbrand property of Navbar expects.
+    // Html type gets tossed into navbrand field of NavbarProps struct. Consult ybc Docs for more info.
     fn view_navbrand(&self) -> Html {
         html! {
             <>
@@ -60,6 +64,7 @@ impl Model {
         }
     }
 
+    // Contruct Navbar navdrop Menu
     fn view_navdrop(&self) -> Html {
         html! {
             <ybc::NavbarDropdown navlink=self.view_navlink() hoverable=true>
@@ -80,18 +85,23 @@ impl Model {
         }
     }
 
+    // Contruct the contents of the `navbar-end` section and return Html type that navend property of Navbar expects.
+    // Html type gets tossed into navend field of NavbarProps struct. Consult ybc Docs for more info.
     fn view_navend(&self) -> Html {
         html! {
 
         }
     }
 
+    // Return Html type that navlink property of NavbarDropdown expects. Gets tossed into navlink field of NavbarDropdownProps struct. Consult ybc Docs for more info.
     fn view_navlink(&self) -> Html {
         html! {
             { "More" }
         }
     }
 
+    // Contruct the contents of the `navbar-start` section and return Html type that navstart property of Navbar expects.
+    // Html type gets tossed into navstart field of NavbarProps struct. Consult ybc Docs for more info.
     fn view_navstart(&self) -> Html {
         html! {
             <>
