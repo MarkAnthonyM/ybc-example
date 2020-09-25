@@ -60,6 +60,26 @@ impl Model {
         }
     }
 
+    fn view_navdrop(&self) -> Html {
+        html! {
+            <ybc::NavbarDropdown navlink=self.view_navlink() hoverable=true>
+                <ybc::NavbarItem tag=A>
+                    { "About" }
+                </ybc::NavbarItem>
+                <ybc::NavbarItem tag=A>
+                    { "Jobs" }
+                </ybc::NavbarItem>
+                <ybc::NavbarItem tag=A>
+                    { "Contact" }
+                </ybc::NavbarItem>
+                <ybc::NavbarDivider />
+                <ybc::NavbarItem tag=A>
+                    { "Report an issue" }
+                </ybc::NavbarItem>
+            </ybc::NavbarDropdown>
+        }
+    }
+
     fn view_navend(&self) -> Html {
         html! {
 
@@ -81,11 +101,7 @@ impl Model {
                 <ybc::NavbarItem tag=A>
                     { "Documentation" }
                 </ybc::NavbarItem>
-                <ybc::NavbarDropdown navlink=self.view_navlink() hoverable=true>
-                    <ybc::NavbarItem tag=A>
-                        { "About" }
-                    </ybc::NavbarItem>
-                </ybc::NavbarDropdown>
+                { self.view_navdrop() }
             </>
         }
     }
