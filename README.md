@@ -4,7 +4,7 @@ This repo contains a quick run down of some functionality of the ybc crate libra
 ## Example - Navbar
 
 <p align="center">
-    <img src="https://giphy.com/gifs/qdHWuSMituIUoYpwi8">
+    <img src="https://media.giphy.com/media/qdHWuSMituIUoYpwi8/giphy.gif">
 </p>
 
 ### Code
