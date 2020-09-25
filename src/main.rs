@@ -1,4 +1,6 @@
 use yew::prelude::*;
+use ybc::Navbar;
+use ybc::NavbarItemTag::A;
 
 enum Msg {
     AddOne,
@@ -42,10 +44,12 @@ impl Component for Model {
 
     fn view(&self) -> Html {
         html! {
-            <div>
-                <button onclick=self.link.callback(|_| Msg::AddOne)>{ "+1" }</button>
-                <p>{ self.value }</p>
-            </div>
+            <>
+                // <ybc::NavbarItem tag=A>
+                //     <img src="https://bulma.io/images/bulma-logo.png" />
+                // </ybc::NavbarItem>
+                <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
+            </>
         }
     }
 }
