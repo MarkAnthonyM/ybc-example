@@ -62,7 +62,23 @@ impl Model {
 
     fn view_navend(&self) -> Html {
         html! {
-            
+
+        }
+    }
+
+    fn view_navstart(&self) -> Html {
+        html! {
+            <ybc::NavbarItem Tag=A>
+                { "Home" }
+            </ybc::NavbarItem>
+            <ybc::NavbarItem tag=A>
+                { "Documentation" }
+            </ybc::NavbarItem>
+            <ybc::NavbarDropdown navlink=view_navlink() hoverable=true>
+                <ybc::NavbarItem tag=A>
+                    { "About" }
+                </ybc::NavbarItem>
+            </ybc::NavbarDropdown>
         }
     }
 }
