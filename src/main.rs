@@ -93,7 +93,8 @@ impl Model {
         }
     }
 
-    // Return Html type that navlink property of NavbarDropdown expects. Gets tossed into navlink field of NavbarDropdownProps struct. Consult ybc Docs for more info.
+    // Contruct the contents of the `navbar-link` section and return Html type that navlink property of NavbarDropdown expects.
+    // Html type gets tossed into navlink field of NavbarDropdownProps struct. Consult ybc Docs for more info.
     fn view_navlink(&self) -> Html {
         html! {
             { "More" }
