@@ -8,7 +8,7 @@ This repo contains a quick run down of some functionality of the ybc crate libra
 </p>
 
 ### Code
-```
+```rust
 struct Model {
     // `ComponentLink` is like a reference to a component.
     // It can be used to send messages to the component
