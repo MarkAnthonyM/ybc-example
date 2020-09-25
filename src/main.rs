@@ -59,6 +59,12 @@ impl Model {
             </>
         }
     }
+
+    fn view_navend(&self) -> Html {
+        html! {
+            
+        }
+    }
 }
 
 fn main() {
