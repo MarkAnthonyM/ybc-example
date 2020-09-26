@@ -49,9 +49,15 @@ impl Component for Model {
 
     fn view(&self) -> Html {
         html! {
-            // ybc-element of type Navbar. navbrand, navstart, and navend properties are required and each expect an Html type. The yew html! macro returns this type.
-            // The `navbar-burger` section is automatically appended.
-            <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
+            <>
+                // ybc-element of type Navbar. navbrand, navstart, and navend properties are required and each expect an Html type. The yew html! macro returns this type.
+                // The `navbar-burger` section is automatically appended.
+                <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
+
+                // Main view. ybc-element of type Tile. Is a container for all other tiles that compose the main body of webpage.
+                <ybc::Tile ctx=Ancestor>
+                </ybc::Tile>
+            </>
         }
     }
 }
@@ -65,8 +71,6 @@ impl Model {
                 <ybc::NavbarItem tag=A>
                     <img src="https://bulma.io/images/bulma-logo.png" />
                 </ybc::NavbarItem>
-                <ybc::Tile ctx=Ancestor>
-                </ybc::Tile>
             </>
         }
     }
