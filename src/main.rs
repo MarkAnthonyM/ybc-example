@@ -1,6 +1,9 @@
+#![recursion_limit="512"]
+
 use yew::prelude::*;
 use ybc::{ Button, Buttons };
-use ybc::TileCtx::Ancestor;
+use ybc::TileCtx::{ Ancestor, Child, Parent };
+use ybc::TileSize;
 use ybc::Navbar;
 use ybc::NavbarDivider;
 use ybc::NavbarDropdown;
@@ -54,8 +57,9 @@ impl Component for Model {
                 // The `navbar-burger` section is automatically appended.
                 <ybc::Navbar navbrand=self.view_navbrand() navstart=self.view_navstart() navend=self.view_navend() />
 
-                // Main view. ybc-element of type Tile. Is a container for all other tiles that compose the main body of webpage.
+                // ybc-element of type Tile. Is a container for all other tiles that compose the main body of webpage.
                 <ybc::Tile ctx=Ancestor>
+                    { self.view_main() }
                 </ybc::Tile>
             </>
         }
@@ -63,6 +67,66 @@ impl Component for Model {
 }
 
 impl Model {
+    // Construct contents of main section of webpage. 
+    fn view_main(&self) -> Html {
+        html! {
+            <>
+                <ybc::Tile vertical=true size=TileSize::Eight>
+                    <ybc::Tile>
+                        <ybc::Tile ctx=Parent vertical=true>
+                            <ybc::Tile ctx=Child tag="article" classes=Some("notification is-primary")>
+                                <p class="title">{ "Vertical..." }</p>
+                                <p class="subtitle">{ "Top tile" }</p>
+                            </ybc::Tile>
+                            <ybc::Tile ctx=Child tag="article" classes=Some("notification is-warning")>
+                                <p class="title">{ "...titles" }</p>
+                                <p class="subtitle">{ "Bottom tile" }</p>
+                            </ybc::Tile>
+                        </ybc::Tile>
+                        <ybc::Tile ctx=Parent>
+                            <ybc::Tile ctx=Child tag="article" classes=Some("notification is-info")>
+                                <p class="title">{ "Middle tile" }</p>
+                                <p class="subtitle">{ "With an image" }</p>
+                                <figure class="image is-4by3">
+                                    <img src="https://bulma.io/images/placeholders/640x480.png" />
+                                </figure>
+                            </ybc::Tile>
+                        </ybc::Tile>
+                    </ybc::Tile>
+                    <ybc::Tile ctx=Parent>
+                        <ybc::Tile ctx=Child tag="article" classes=Some("notification is-danger")>
+                            <p class="title">{ "Wide tile" }</p>
+                            <p class="subtitle">{ "Aligned with the right tile" }</p>
+                            <div class="content">
+                                <p>{ "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis." }</p>
+                            </div>
+                        </ybc::Tile>
+                    </ybc::Tile>
+                </ybc::Tile>
+                <ybc::Tile ctx=Parent>
+                    <ybc::Tile ctx=Child tag="article" classes=Some("notification is-success")>
+                        <div class="content">
+                            <p class="title">{ "Tall title" }</p>
+                            <p class="subtitle">{ "With even more content" }</p>
+                            <div class="content">
+                                <p>
+                                    {
+                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam."
+                                    }
+                                </p>
+                                <p>
+                                    {
+                                        "Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor."
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </ybc::Tile>
+                </ybc::Tile>
+            </>
+        }
+    }
+    
     // Contruct the contents of the Navbar brand section and return Html type that navbrand property of Navbar expects.
     // Html type gets tossed into navbrand field of NavbarProps struct. Consult ybc Docs for more info.
     fn view_navbrand(&self) -> Html {
