@@ -106,10 +106,6 @@ impl Model {
         }
     }
 }
-
-fn main() {
-    yew::start_app::<Model>();
-}
 ```
     
 </details>
@@ -213,4 +209,5 @@ impl Model {
     }
 }
 ```
+
 </details>
