@@ -1,9 +1,10 @@
 use yew::prelude::*;
 use ybc::{ Button, Buttons };
+use ybc::TileCtx::Ancestor;
 use ybc::Navbar;
 use ybc::NavbarDivider;
-use ybc::NavbarItem;
 use ybc::NavbarDropdown;
+use ybc::NavbarItem;
 use ybc::NavbarItemTag::{ A, Div };
 
 enum Msg {
@@ -64,6 +65,8 @@ impl Model {
                 <ybc::NavbarItem tag=A>
                     <img src="https://bulma.io/images/bulma-logo.png" />
                 </ybc::NavbarItem>
+                <ybc::Tile ctx=Ancestor>
+                </ybc::Tile>
             </>
         }
     }
