@@ -71,6 +71,8 @@ impl Model {
     fn view_main(&self) -> Html {
         html! {
             <>
+                // Tile element used to build grid layouts. 
+                // Has optional properties children: Children, classes: Option<String>, tag: String, ctx(context modifier): Option<TileCtx>, vertical: bool, and size: Option<TileSize>
                 <ybc::Tile vertical=true size=TileSize::Eight>
                     <ybc::Tile>
                         <ybc::Tile ctx=Parent vertical=true>
